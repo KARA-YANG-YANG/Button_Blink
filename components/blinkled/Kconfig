@@ -1,0 +1,21 @@
+menu "点灯配置1"
+
+   # orsource "$IDF_PATH/examples/common_components/env_caps/$IDF_TARGET/Kconfig.env_caps"
+   
+       choice  BLINK_LED
+         prompt "LED模式"
+         default BLINK_LED_GPIO
+         
+         config BLINK_LED_GPIO
+           bool "GPIO"
+         config BLINK_LED_PWM
+           bool "PWM"
+       endchoice
+         config BLINK_GPIO
+         int "GPIO 引脚"
+         default 2
+         config BLINK_PERIOD
+         int "闪烁周期(ms)"
+         default 1000
+   
+   endmenu
